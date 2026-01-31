@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Open this♡</title>
+</head>
+<body>
+    <audio id="bgMusic" loop>
+  <source src="d.ear x Jaehyun - Try Again (Jaehyun's Part Only).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const music = document.getElementById("bgMusic");
+
+  document.addEventListener("click", () => {
+    music.play();
+  }, { once: true });
+</script>
+
+    <div id="envelope-container">
+        <img src="envelope.png" alt="Envelope" id="envelope">
+        <p>♡Letter for you♡</p>
+    </div>
+
+     <div id="letter-container">
+        <div class="letter-window">
+            <h1 id="letter-title">Will u be my date on valentine?</h1>
+            
+            <div>
+                <img src="download (1).gif" class="kitty" id="letter-kitty">
+            </div>
+            
+
+            <div class="buttons" id="letter-buttons">
+                <img src="yes.png" class="btn yes-btn" alt="Yes">
+
+                <div class="no-wrapper">
+                    <img src="no.png" class="btn no-btn" alt="No">
+                </div>
+            </div>
+
+            <p id="final-text" class="final-text" style="display: none">
+                <strong>Valentine date: Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi repudiandae officia harum unde, odio in sequi expedita eligendi fugit quibusdam dicta ducimus voluptatem, laudantium a veniam magni voluptates cum architecto.</strong>
+            </p>
+            
+
+        </div>
+     </div>
+    <script src="script.js"></script>
+</body>
+</html>
