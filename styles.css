@@ -48,28 +48,25 @@ body {
 
 .letter-window {
     width: min(95vw, 900px);
-    min-height: 60vh;
-    max-height: 90svh;
-
-    padding: clamp(16px, 4vw, 24px);
-    padding-top: clamp(100px, 20vw, 180px);
-    padding-bottom: clamp(16px, 4vw, 32px);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    height: min(90vh, 700px);
 
     background-image: url("♡ Be Positive ♡.jpg");
-    background-size: contain;
+    background-size: 100% 100%;   /* KEY */
     background-repeat: no-repeat;
-    background-position: top center;
+    background-position: center;
 
     border-radius: clamp(24px, 8vw, 80px);
     box-sizing: border-box;
 
-    overflow-y: auto; /* ⭐ KEY FIX */
+    display: grid;
+    grid-template-rows: 1fr auto auto auto;
+    justify-items: center;
+    align-items: center;
+
+    padding: clamp(20px, 5vw, 40px);
+    text-align: center;
 }
+
 
 
 .letter-window.open{
@@ -89,8 +86,8 @@ p {
 }
 
 .kitty {
-    width: min(45vw, 220px);
-    max-height: 30vh;
+    width: clamp(120px, 30vw, 200px);
+    height: auto;
     object-fit: contain;
     transition: width 0.4s ease;
 }
@@ -106,7 +103,7 @@ p {
     position: relative; 
     flex-wrap: wrap;
     flex-shrink: 0;
-    margin-top: clamp(12px, 3vw, 20px);
+    margin-top: 10px;
 }
 
 .no-wrapper{
@@ -151,12 +148,8 @@ p {
 }
 
 .content {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-    padding-bottom: clamp(12px, 3vw, 20px);
-
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
