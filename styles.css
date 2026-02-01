@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     min-height: 100svh;
@@ -27,6 +28,17 @@ body {
     }
 }
 
+@keyframes popIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.6);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 @media (max-width: 480px) {
     .buttons {
         flex-direction: column;
@@ -47,24 +59,23 @@ body {
 }
 
 .letter-window {
-    width: min(95vw, 900px);
-    height: min(90vh, 700px);
-
-    background-image: url("♡ Be Positive ♡.jpg");
-    background-size: 100% 100%;   /* KEY */
-    background-repeat: no-repeat;
-    background-position: center;
-
-    border-radius: clamp(24px, 8vw, 80px);
+    width: min(95vw, 900px); 
+    min-height: 60vh; 
+    max-height: 90svh; 
+    padding: clamp(16px, 4vw, 24px); 
+    padding-top: clamp(100px, 20vw, 180px); 
+    padding-bottom: clamp(16px, 4vw, 32px); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    background-color: rgba(255, 219, 225, 0.729);
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: top center; 
+    border-radius: clamp(10px, 4vw, 40px); 
     box-sizing: border-box;
-
-    display: grid;
-    grid-template-rows: 1fr auto auto auto;
-    justify-items: center;
-    align-items: center;
-
-    padding: clamp(20px, 5vw, 40px);
-    text-align: center;
+    animation: popIn 0.8s ease forwards;
 }
 
 
@@ -78,6 +89,7 @@ h1{
     font-size: clamp(18px, 5vw, 30px);
     margin: 0; 
     color: rgb(255, 124, 146);
+    animation: popIn 0.8s ease forwards;
 }
 
 p {
@@ -104,6 +116,7 @@ p {
     flex-wrap: wrap;
     flex-shrink: 0;
     margin-top: 10px;
+    animation: popIn 0.8s ease forwards;
 }
 
 .no-wrapper{
@@ -143,7 +156,7 @@ p {
     text-align: center;
     display: inline-block;
     padding: 10px 20px;
-    background-color: gray;
+    background-color: rgb(246, 147, 200);
     border-radius: 12px;
 }
 
