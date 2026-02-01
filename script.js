@@ -75,3 +75,36 @@ yesBtn.addEventListener("click", () => {
     finalText.style.display = "block";
 });
 
+const container = document.getElementById("heart-rain");
+
+let rainInterval = null;
+let raining = false;
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+
+  const img = document.createElement("img");
+  img.src = "Pixel_Heart.png"; // your image path
+  img.alt = "heart";
+
+  heart.appendChild(img);
+
+  const size = Math.random() * 20 + 20;
+  heart.style.width = size + "px";
+  heart.style.height = size + "px";
+
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+
+  container.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}
+
+document.addEventListener("click", () => {
+  if (raining) return; // prevents restarting
+  raining = true;
+
+  rainInterval = setInterval(createHeart, 200);
+});
+
