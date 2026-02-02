@@ -1,4 +1,4 @@
-/* ---------- GLOBAL FIX FOR MOBILE VIEWPORT ---------- */
+/* ---------- GLOBAL ---------- */
 html, body {
     height: 100%;
 }
@@ -28,7 +28,7 @@ html, body {
 /* ---------- BODY ---------- */
 body {
     margin: 0;
-    height: 100vh; /* FIXED */
+    height: 100vh;
     background-image: url("Soft pink cover photo.jpg");
     background-size: cover;
     background-position: center;
@@ -72,21 +72,25 @@ body {
     cursor: pointer;
 }
 
-/* ---------- LETTER CONTAINER ---------- */
+/* ---------- LETTER CONTAINER (FIXED PROPERLY) ---------- */
 #letter-container{
-    display: none;
     position: fixed;
     inset: 0;
-    height: 100vh; /* FIXED */
+    height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
+
+    /* 🔥 real fix */
+    opacity: 0;
+    pointer-events: none;
 }
 
 /* ---------- LETTER WINDOW ---------- */
 .letter-window {
     width: min(95vw, 900px); 
     min-height: 60vh; 
-    max-height: 90vh; /* FIXED */
+    max-height: 90vh;
     padding: clamp(16px, 4vw, 24px); 
     padding-top: clamp(80px, 12vw, 140px);
     padding-bottom: clamp(16px, 4vw, 32px); 
