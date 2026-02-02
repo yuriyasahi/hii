@@ -35,7 +35,7 @@ body {
     overflow: hidden;
 }
 
-/* ---------- ENVELOPE CONTAINER ---------- */
+/* ---------- ENVELOPE CONTAINER (ONLY FIXED ELEMENT) ---------- */
 #envelope-container{
     position: fixed;
     inset: 0;
@@ -72,16 +72,14 @@ body {
     cursor: pointer;
 }
 
-/* ---------- LETTER CONTAINER (FIXED PROPERLY) ---------- */
+/* ---------- LETTER CONTAINER (REAL FIX HERE) ---------- */
 #letter-container{
-    position: fixed;
+    position: absolute;   /* ✅ changed from fixed */
     inset: 0;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* 🔥 real fix */
     opacity: 0;
     pointer-events: none;
 }
