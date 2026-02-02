@@ -100,6 +100,7 @@ body {
     border-radius: clamp(10px, 4vw, 40px); 
     box-sizing: border-box;
     animation: popIn 0.8s ease forwards;
+     overflow-y: auto;
 }
 
 
@@ -190,3 +191,4 @@ p {
     align-items: center;
     gap: 10px;
 }
+
