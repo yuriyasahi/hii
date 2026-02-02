@@ -1,8 +1,15 @@
+const music = document.getElementById("bgMusic");
+
+  document.addEventListener("click", () => {
+    music.play();
+  }, { once: true });
+
 // Elements
 const envelope = document.getElementById("envelope-container");
 const letter = document.getElementById("letter-container");
 const noBtn = document.querySelector(".no-btn");
-const yesBtn = document.querySelector(".btn[alt='Yes']");
+const yesBtn = document.querySelector(".yes-btn");
+
 
 const title = document.getElementById("letter-title");
 const kittyImg = document.getElementById("letter-kitty");
@@ -28,7 +35,7 @@ yesBtn.style.transformOrigin = "center center";
 yesBtn.style.transition = "transform 0.3s ease";
 
 noBtn.addEventListener("click", () => {
-    yesScale += 2;
+    yesScale = Math.min(yesScale + 0.4, 3);
 
      if (yesBtn.style.position !== "fixed") {
          yesBtn.style.position = "fixed";
