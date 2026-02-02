@@ -92,6 +92,7 @@ body {
     align-items: center;
     text-align: center;
 
+    background-color: pink;
     border-radius: clamp(10px, 4vw, 40px);
     box-sizing: border-box;
     animation: popIn 0.8s ease forwards;
@@ -145,9 +146,13 @@ p {
 
 @media (max-width: 480px) {
     .buttons {
-        flex-direction: column;
+        gap: 15px;
     }
-}
+
+    .btn {
+        width: 100px;
+    }
+}  
 
 /* ---------- Buttons images ---------- */
 .btn,
