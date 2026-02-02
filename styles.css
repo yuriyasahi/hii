@@ -1,11 +1,15 @@
-/* ---------- Falling hearts ---------- */
+/* ---------- GLOBAL FIX FOR MOBILE VIEWPORT ---------- */
+html, body {
+    height: 100%;
+}
+
+/* ---------- HEARTS ---------- */
 .heart {
   position: absolute;
   top: -50px;
   width: 30px;
   height: 30px;
   animation: fall linear forwards;
-  pointer-events: none;
 }
 
 .heart img {
@@ -21,18 +25,17 @@
   }
 }
 
-/* ---------- Body ---------- */
+/* ---------- BODY ---------- */
 body {
     margin: 0;
-    min-height: 100svh;
+    height: 100vh; /* FIXED */
     background-image: url("Soft pink cover photo.jpg");
     background-size: cover;
     background-position: center;
     overflow: hidden;
-    font-family: sans-serif;
 }
 
-/* ---------- Envelope first screen ---------- */
+/* ---------- ENVELOPE CONTAINER ---------- */
 #envelope-container{
     position: fixed;
     inset: 0;
@@ -40,16 +43,11 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     cursor: pointer;
-    z-index: 5;
 }
 
-#envelope{
-    width: clamp(120px, 40vw, 200px);
-    animation: pulse 0.5s infinite;
-}
-
-/* ---------- Animations ---------- */
+/* ---------- ANIMATIONS ---------- */
 @keyframes pulse {
     0% { transform:scale(1); }
     50% { transform: scale(1.1); }
@@ -67,53 +65,63 @@ body {
     }
 }
 
-/* ---------- Letter screen ---------- */
+/* ---------- ENVELOPE ---------- */
+#envelope{
+    width: clamp(120px, 40vw, 200px);
+    animation: pulse 0.5s infinite;
+    cursor: pointer;
+}
+
+/* ---------- LETTER CONTAINER ---------- */
 #letter-container{
     display: none;
     position: fixed;
     inset: 0;
+    height: 100vh; /* FIXED */
     justify-content: center;
     align-items: center;
-    z-index: 4;
 }
 
-/* MAIN FIX: this controls everything inside properly */
+/* ---------- LETTER WINDOW ---------- */
 .letter-window {
-    width: min(95vw, 900px);
-    min-height: 60vh;
-    max-height: 90svh;
-    padding: clamp(16px, 4vw, 24px);
+    width: min(95vw, 900px); 
+    min-height: 60vh; 
+    max-height: 90vh; /* FIXED */
+    padding: clamp(16px, 4vw, 24px); 
     padding-top: clamp(80px, 12vw, 140px);
-    padding-bottom: clamp(16px, 4vw, 32px);
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;   /* prevents overlap */
-    align-items: center;
-    text-align: center;
-
+    padding-bottom: clamp(16px, 4vw, 32px); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
     background-color: pink;
-    border-radius: clamp(10px, 4vw, 40px);
+    background-size: contain; 
+    background-repeat: no-repeat; 
+    background-position: top center; 
+    border-radius: clamp(10px, 4vw, 40px); 
     box-sizing: border-box;
     animation: popIn 0.8s ease forwards;
-    overflow: hidden;
 }
 
-/* ---------- Text ---------- */
+.letter-window.open{
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* ---------- TEXT ---------- */
 h1{
     font-size: clamp(18px, 5vw, 30px);
-    margin: 0;
+    margin: 0; 
     color: rgb(255, 124, 146);
     animation: popIn 0.8s ease forwards;
 }
 
 p {
     font-size: clamp(20px, 6vw, 40px);
-    color: rgb(192, 49, 73);
-    margin: 10px 0;
+    color:  rgb(192, 49, 73);
 }
 
-/* ---------- Kitty image ---------- */
+/* ---------- KITTY ---------- */
 .kitty {
     width: clamp(120px, 30vw, 200px);
     height: auto;
@@ -122,66 +130,74 @@ p {
 }
 
 .letter-window.final .kitty {
-    width: clamp(120px, 30vw, 180px);
+    width:  clamp(120px, 30vw, 180px);
 }
 
-/* ---------- Content wrapper ---------- */
+/* ---------- BUTTONS ---------- */
+.buttons {
+    display: flex; 
+    justify-content: center;
+    gap: clamp(16px, 5vw, 30px); 
+    position: relative; 
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    margin-top: 10px;
+    animation: popIn 0.8s ease forwards;
+}
+
+.no-wrapper{
+    position: relative;
+}
+
+.btn {
+    width: 120px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.yes-btn,
+.no-btn {
+    width: 120px;
+    height: auto;
+    display: inline-block;
+}
+
+.yes-btn {
+    position: relative;
+    z-index: 2;
+    transform-origin: center center;
+    transition: transform 0.3s ease;
+}
+
+.no-btn {
+    z-index: 1;
+    position: relative;
+    transition: transform 0.15s ease;
+    cursor: default;
+}
+
+/* ---------- FINAL TEXT ---------- */
+.final-text {
+    font-size: clamp(16px, 4vw, 22px);
+    line-height: 1.4;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgb(246, 147, 200);
+    border-radius: 12px;
+}
+
+/* ---------- CONTENT ---------- */
 .content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    width: 100%;
 }
 
-/* ---------- Buttons ---------- */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: clamp(16px, 5vw, 30px);
-    flex-wrap: wrap;
-    margin-top: 15px;
-    animation: popIn 0.8s ease forwards;
-}
-
+/* ---------- MOBILE ---------- */
 @media (max-width: 480px) {
     .buttons {
-        gap: 15px;
+        flex-direction: column;
     }
-
-    .btn {
-        width: 100px;
-    }
-}  
-
-/* ---------- Buttons images ---------- */
-.btn,
-.yes-btn,
-.no-btn {
-    width: 120px;
-    height: auto;
-    user-select: none;
-}
-
-.yes-btn {
-    z-index: 2;
-    transform-origin: center;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.no-btn {
-    z-index: 1;
-    transition: transform 0.15s ease;
-    cursor: pointer;
-}
-
-/* ---------- Final text ---------- */
-.final-text {
-    font-size: clamp(16px, 4vw, 22px);
-    line-height: 1.4;
-    padding: 10px 20px;
-    background-color: rgb(246, 147, 200);
-    border-radius: 12px;
-    margin-top: 10px;
 }
