@@ -20,7 +20,9 @@ const finalText = document.getElementById("final-text");
 
 envelope.addEventListener("click", () => {
     envelope.style.display = "none";
-    letter.style.display = "flex";
+    letterContainer.style.opacity = "1";
+    letterContainer.style.pointerEvents = "auto";
+
 
     setTimeout( () => {
         document.querySelector(".letter-window").classList.add("open");
@@ -114,4 +116,5 @@ document.addEventListener("click", () => {
 
   rainInterval = setInterval(createHeart, 200);
 });
+
 
