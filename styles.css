@@ -94,13 +94,13 @@ body {
     flex-direction: column; 
     align-items: center; 
     text-align: center; 
+    background-color: pink;
     background-size: contain; 
     background-repeat: no-repeat; 
     background-position: top center; 
     border-radius: clamp(10px, 4vw, 40px); 
     box-sizing: border-box;
     animation: popIn 0.8s ease forwards;
-     overflow-y: auto;
 }
 
 
@@ -191,4 +191,5 @@ p {
     align-items: center;
     gap: 10px;
 }
+
 
